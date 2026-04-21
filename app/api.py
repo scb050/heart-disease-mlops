@@ -4,6 +4,7 @@ from typing import Literal
 import joblib
 import pandas as pd
 from fastapi import FastAPI
+from fastapi.responses import HTMLResponse
 from pydantic import BaseModel
 
 
@@ -36,12 +37,74 @@ class PredictionOutput(BaseModel):
     probability: float
 
 
-@app.get("/")
+@app.get("/", response_class=HTMLResponse)
 def home():
-    return {
-        "message": "Heart Disease Prediction API is running",
-        "model_loaded": MODEL_PATH.exists()
-    }
+    return """
+    <html>
+        <head>
+            <title>Heart Disease API</title>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    background-color: #f4f6f8;
+                    margin: 0;
+                    padding: 0;
+                }
+                .container {
+                    max-width: 800px;
+                    margin: 80px auto;
+                    background: white;
+                    padding: 40px;
+                    border-radius: 12px;
+                    box-shadow: 0 4px 18px rgba(0,0,0,0.1);
+                    text-align: center;
+                }
+                h1 {
+                    color: #1f4e79;
+                    margin-bottom: 10px;
+                }
+                p {
+                    color: #333;
+                    font-size: 18px;
+                    line-height: 1.6;
+                }
+                a {
+                    display: inline-block;
+                    margin-top: 20px;
+                    padding: 12px 20px;
+                    background-color: #1f77b4;
+                    color: white;
+                    text-decoration: none;
+                    border-radius: 8px;
+                    font-weight: bold;
+                }
+                a:hover {
+                    background-color: #155d8b;
+                }
+                .status {
+                    margin-top: 25px;
+                    font-size: 16px;
+                    color: green;
+                    font-weight: bold;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h1>Heart Disease Prediction API</h1>
+                <p>
+                    Esta API permite predecir el riesgo de enfermedad cardíaca
+                    usando un modelo de machine learning entrenado con el dataset heart.csv.
+                </p>
+                <p>
+                    Puedes probar el endpoint de predicción y revisar la documentación interactiva.
+                </p>
+                <a href="/docs">Ir a la documentación interactiva</a>
+                <div class="status">Modelo cargado correctamente</div>
+            </div>
+        </body>
+    </html>
+    """
 
 
 @app.post("/predict", response_model=PredictionOutput)

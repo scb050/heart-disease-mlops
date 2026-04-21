@@ -40,3 +40,8 @@ Se utiliza el archivo `heart.csv`, con variables clínicas para clasificación b
 - Kubernetes
 - GitHub Actions
 - Evidently
+
+## Crear entorno
+```bash
+conda env create -f environment.yml
+conda activate heart_mlops
