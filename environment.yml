@@ -1,0 +1,21 @@
+name: heart_mlops
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - pandas
+  - numpy
+  - matplotlib
+  - scikit-learn
+  - jupyter
+  - ipykernel
+  - pip
+  - pip:
+      - fastapi
+      - uvicorn
+      - pydantic
+      - joblib
+      - evidently
+      - pytest
+      - flake8
