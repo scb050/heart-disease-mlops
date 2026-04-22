@@ -1,0 +1,9 @@
+# Dependencias de desarrollo y testing
+# Instalar con: pip install -r requirements-dev.txt
+# (asume que ya instalaste los requirements de produccion)
+
+-r docker/requirements.txt
+
+pytest==8.3.3
+httpx==0.27.2
+flake8==7.1.1
