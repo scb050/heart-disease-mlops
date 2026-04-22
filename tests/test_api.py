@@ -52,7 +52,8 @@ def test_home_endpoint():
     """El endpoint raiz debe responder 200 y devolver HTML."""
     response = client.get("/")
     assert response.status_code == 200
-    assert "Heart Disease Prediction API" in response.text
+    assert "<!DOCTYPE html>" in response.text.lower() or "<!doctype html>" in response.text.lower()
+    assert "Cardiograph" in response.text or "Heart Disease" in response.text
 
 
 def test_predict_high_risk_patient():
@@ -100,3 +101,22 @@ def test_high_risk_has_higher_probability_than_low_risk():
     high = client.post("/predict", json=HIGH_RISK_PATIENT).json()
     low = client.post("/predict", json=LOW_RISK_PATIENT).json()
     assert high["probability"] > low["probability"]
+
+
+def test_health_endpoint():
+    """El endpoint /health debe devolver status ok y model_loaded True."""
+    response = client.get("/health")
+    assert response.status_code == 200
+    data = response.json()
+    assert data["status"] == "ok"
+    assert data["model_loaded"] is True
+    assert "version" in data
+
+
+def test_version_endpoint():
+    """El endpoint /version debe devolver api_version."""
+    response = client.get("/version")
+    assert response.status_code == 200
+    data = response.json()
+    assert "api_version" in data
+    assert data["model_loaded"] is True
