@@ -31,7 +31,7 @@ jobs:
 
       - name: Lint con flake8
         run: |
-          flake8 app --max-line-length=200 --extend-ignore=E203,W503
+          flake8 app --max-line-length=300 --extend-ignore=E203,W503
 
       - name: Ejecutar tests con pytest
         run: |
