@@ -1,0 +1,66 @@
+#######################################################################################
+# Configuración principal del Jupyter Book
+# Documentación: https://jupyterbook.org/customize/config.html
+#######################################################################################
+
+title: "Heart Disease MLOps"
+author: "Mateo"
+copyright: "2026"
+logo: ""
+only_build_toc_files: true
+
+#######################################################################################
+# Ejecución de los notebooks
+# - "off"   : no ejecuta, usa las salidas ya guardadas en el .ipynb
+# - "force" : ejecuta siempre (útil si cambió el código o el modelo)
+#######################################################################################
+execute:
+  execute_notebooks: "off"
+  timeout: 120
+  allow_errors: false
+
+#######################################################################################
+# Parser / extensiones de markdown
+# Habilitamos "dollarmath" para ecuaciones y "colon_fence" para admoniciones bonitas.
+#######################################################################################
+parse:
+  myst_enable_extensions:
+    - colon_fence
+    - dollarmath
+    - deflist
+    - tasklist
+    - linkify
+    - substitution
+
+#######################################################################################
+# Formato de salida
+#######################################################################################
+latex:
+  latex_documents:
+    targetname: heart-disease-mlops.tex
+
+#######################################################################################
+# Personalización HTML
+#######################################################################################
+html:
+  favicon: ""
+  use_issues_button: false
+  use_repository_button: true
+  use_edit_page_button: false
+  home_page_in_navbar: true
+  baseurl: ""
+  extra_footer: |
+    <p>Heart Disease MLOps · Proyecto integrador · 2026</p>
+
+repository:
+  url: https://github.com/tu-usuario/heart-disease-mlops
+  branch: main
+  path_to_book: jupyter_book
+
+#######################################################################################
+# Sphinx
+#######################################################################################
+sphinx:
+  config:
+    html_show_copyright: true
+    language: es

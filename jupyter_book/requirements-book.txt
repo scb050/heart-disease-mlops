@@ -1,0 +1,5 @@
+# Dependencias para construir el Jupyter Book.
+# Sólo se necesita para compilar el libro a HTML, no para correr el proyecto.
+jupyter-book==1.0.3
+sphinx==7.4.7
+myst-nb==1.1.2

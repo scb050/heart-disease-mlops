@@ -1,0 +1,41 @@
+# Tabla de contenidos del Jupyter Book
+# Formato: jb-book | cada "part" es un capítulo y cada "chapters" es una sección.
+# Docs: https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+
+parts:
+  - caption: "Capítulo 1 · Contexto del proyecto"
+    chapters:
+      - file: 01_contexto/01_introduccion
+      - file: 01_contexto/02_dataset
+      - file: 01_contexto/03_arquitectura
+
+  - caption: "Capítulo 2 · Análisis y fuga de datos"
+    chapters:
+      - file: 02_analisis/00_intro_leakage
+      - file: 02_analisis/01_leakage_demo
+      - file: 02_analisis/02_cierre_leakage
+
+  - caption: "Capítulo 3 · Pipeline seguro y entrenamiento"
+    chapters:
+      - file: 03_pipeline/00_intro_pipeline
+      - file: 03_pipeline/01_model_pipeline_cv
+      - file: 03_pipeline/02_cierre_pipeline
+
+  - caption: "Capítulo 4 · Despliegue del modelo"
+    chapters:
+      - file: 04_despliegue/01_fastapi
+      - file: 04_despliegue/02_docker
+      - file: 04_despliegue/03_kubernetes
+
+  - caption: "Capítulo 5 · Operación y monitoreo"
+    chapters:
+      - file: 05_operaciones/01_tests
+      - file: 05_operaciones/02_monitoreo
+      - file: 05_operaciones/03_ci_cd
+
+  - caption: "Capítulo 6 · Conclusiones"
+    chapters:
+      - file: 06_conclusiones/01_conclusiones

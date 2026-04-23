@@ -16,3 +16,9 @@ conda-meta/
 .jupyter/
 *.log
 desktop.ini
+
+# Claude Code workspace
+.claude/
+
+# Claude Code workspace
+.claude/
